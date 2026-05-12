@@ -1,0 +1,6 @@
+keytool -genkeypair -v -storetype PKCS12 -keystore dorkar-boy-mall.keystore -alias dorkar-boy-mall -keyalg RSA -keysize 2048 -validity 10000
+
+123456
+
+dorkar-boy-mall.keystore
+ 
