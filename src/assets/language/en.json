@@ -1537,7 +1537,9 @@
            "Viewallrunningorders":"View all running orders",
            "paymentErrorMessage":"Currently, there are no payment options available. Please contact admin regarding any payment process or queries.",
            "AdjustPayments":"Adjust payments",
-           "WalletProvidedEarning":"Wallet Provided Earning" 
+           "WalletProvidedEarning":"Wallet Provided Earning",
+           "OfflineMsg": "You can't go offline.",
+           "OfflineMsgTitle": "You have an active order and cannot go offline at this time."
 
 
             

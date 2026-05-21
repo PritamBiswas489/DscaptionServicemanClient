@@ -66,6 +66,8 @@ export default function StoreHome() {
   const [refreshing, setRefreshing] = React.useState(false);
   const [cancelableAlert,showNonCancelableAlert] =  useState(false);
   const [runningOrder,setRunningOrder] =  useState<any>(null)
+  const [offlinePopup, setOfflinePopup] = useState(false);
+
   //profile reset 
   const profileReset = async () => {
     const responseuser = await storeAuthService()
@@ -102,10 +104,23 @@ export default function StoreHome() {
   }, []);
 
 
+  // const updateStoreStatus = async () => {
+  //   const response = await updateStoreStatusProcess();
+  //   console.log('API Response:', response?.data?.status);
+  //   profileReset()
+  // }
+
   const updateStoreStatus = async () => {
-    await updateStoreStatusProcess()
-    profileReset()
-  }
+    try {
+      const response = await updateStoreStatusProcess();
+      if (response?.data?.status === 0) {
+        setOfflinePopup(true);
+      }
+      profileReset();
+    } catch (error) {
+      console.log('API Error:', error);
+    }
+  };
 
   //navigate to order details page
   const navigateToOrderDetailsPage = (OrderId: number) => {
@@ -191,7 +206,7 @@ export default function StoreHome() {
         loadOrderOnload() 
   },[])
 
-
+  console.log('runningOrder',runningOrder);
    
   
 
@@ -232,6 +247,104 @@ export default function StoreHome() {
 
 
     {cancelableAlert && <NonCancelableAlert checkLocationPermission={checkLocationPermission}   message={t('newDeveloper.MapLocationError')}/>} 
+    
+    {offlinePopup && (
+      <View
+        style={{
+          position: 'absolute',
+          top: 0,
+          left: 0,
+          right: 0,
+          bottom: 0,
+          backgroundColor: 'rgba(0,0,0,0.4)',
+          justifyContent: 'center',
+          alignItems: 'center',
+          zIndex: 999,
+        }}
+      >
+        <View
+          style={{
+            width: '85%',
+            backgroundColor: '#fff',
+            borderRadius: 12,
+            paddingVertical: 30,
+            paddingHorizontal: 20,
+            alignItems: 'center',
+          }}
+        >
+          {/* Icon */}
+          <View
+            style={{
+              width: 60,
+              height: 60,
+              borderRadius: 30,
+              backgroundColor: '#ff4d4f',
+              justifyContent: 'center',
+              alignItems: 'center',
+              marginBottom: 20,
+            }}
+          >
+            <Text
+              style={{
+                color: '#fff',
+                fontSize: 32,
+                fontWeight: 'bold',
+              }}
+            >
+              !
+            </Text>
+          </View>
+
+          {/* Title */}
+          <Text
+            style={{
+              fontSize: 20,
+              fontWeight: '700',
+              color: '#000',
+              marginBottom: 10,
+            }}
+          >
+            {t('newDeveloper.OfflineMsg')}
+          </Text>
+
+          {/* Message */}
+          <Text
+            style={{
+              textAlign: 'center',
+              color: '#999',
+              fontSize: 15,
+              lineHeight: 22,
+              marginBottom: 25,
+            }}
+          >
+            {t('newDeveloper.OfflineMsgTitle')}
+          </Text>
+
+          {/* Button */}
+          <TouchableOpacity
+            onPress={() => setOfflinePopup(false)}
+            style={{
+              backgroundColor: appColors.primary,
+              paddingVertical: 12,
+              paddingHorizontal: 50,
+              borderRadius: 8,
+            }}
+          >
+            <Text
+              style={{
+                color: '#fff',
+                fontWeight: '700',
+                fontSize: 16,
+              }}
+            >
+              Okay
+            </Text>
+          </TouchableOpacity>
+        </View>
+      </View>
+    )}
+
+
     </>
   );
 }
