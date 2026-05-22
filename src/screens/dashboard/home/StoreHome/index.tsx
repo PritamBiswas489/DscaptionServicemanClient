@@ -205,8 +205,6 @@ export default function StoreHome() {
   useEffect(() => {
         loadOrderOnload() 
   },[])
-
-  console.log('runningOrder',runningOrder);
    
   
 

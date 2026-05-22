@@ -43,27 +43,27 @@ export function BottomTabSeller() {
   const dispatch = useDispatch()
   const tabData = [
     {
-        // name: 'bottomTab.home',
+        name: 'bottomTab.home',
         activeIcon: <Icon name="home" size={24} color={appColors.primary} />,
         tabBarIcon: <Icon name="home" size={24} color="gray" />,
     },
     {
-        // name: 'newDeveloper.RunningOrders',
+        name: 'newDeveloper.RunningOrders',
         activeIcon:<Icon name="list-alt" size={24} color={appColors.primary} />,
         tabBarIcon: <Icon name="list-alt" size={24} color="gray" />,
     },
     {
-        // name: 'newDeveloper.MyOrders',
+        name: 'newDeveloper.MyOrders',
         activeIcon: <Icon name="shopping-bag" size={24} color={appColors.primary} />,
         tabBarIcon:  <Icon name="shopping-bag" size={24} color="gray" />,
     },
     {
-      // name: 'newDeveloper.MyOrders',
+      name: 'newDeveloper.MyWallet',
       activeIcon: <Icon name="credit-card" size={24} color={appColors.primary} />,
       tabBarIcon:  <Icon name="credit-card" size={24} color="gray" />,
   },
     {
-        // name: 'newDeveloper.moreMenuText',
+        name: 'newDeveloper.moreMenuText',
         activeIcon: <Icon name="bars" size={24} color={appColors.primary} />,
         tabBarIcon: <Icon name="bars" size={24} color="gray" />,
     },
