@@ -223,5 +223,6 @@ export type RootStackParamList = {
   StoreOrderDetails:{ OrderId: string }
   StoreListCampaign:undefined;
   StoreChatHistory:undefined;
-  StoreChatMessages:StoreChatMessagesProps
+  StoreChatMessages:StoreChatMessagesProps;
+  MyEarning: undefined;
 };

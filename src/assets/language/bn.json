@@ -1542,7 +1542,9 @@
            "AdjustPayments":"Adjust payments",
            "WalletProvidedEarning":"Wallet Provided Earning",
            "OfflineMsg": "You can't go offline.",
-           "OfflineMsgTitle": "You have an active order and cannot go offline at this time."
+           "OfflineMsgTitle": "You have an active order and cannot go offline at this time.",
+           "MyEarning": "My Earning",
+           "DeliveryFreeEarning": "Delivery Free Earning"
 
 
             

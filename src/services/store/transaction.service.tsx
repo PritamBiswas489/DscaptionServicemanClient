@@ -50,5 +50,20 @@ export const getWithdraws = async(): Promise<Response> => {
 		return error.response;
 	}
 }
+
+export const earningTransactionList = async (
+  limit = 10,
+  offset = 1,
+): Promise<Response> => {
+  try {
+    const response = await api.get(
+      `/delivery-man/earning-transaction-list?limit=${limit}&offset=${offset}`,
+    );
+
+    return response;
+  } catch (error: any) {
+    return error.response;
+  }
+};
  
 

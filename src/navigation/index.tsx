@@ -117,6 +117,7 @@ import { StoreChatHistory } from '@src/screens/dashboard/storeChatHistory';
 import { StoreChatMessages } from '@src/screens/dashboard/storeChatMessages';
 import AuthTokenChecker from '@src/commonComponents/AuthTokenChecker';
 import { RootStackParamList } from './types';
+import MyEarning from '@src/screens/dashboard/myEarning';
 export const navigationRef = React.createRef<NavigationContainerRef<RootStackParamList>>();
 
 export const navigateExtra = (name: keyof RootStackParamList, params?: object) => {
@@ -478,6 +479,8 @@ export default function MyStack() {
             <RootStack.Screen name="StoreChatHistory" component={StoreChatHistory} />
 
             <RootStack.Screen name="StoreChatMessages" component={StoreChatMessages} />
+
+            <RootStack.Screen name="MyEarning" component={MyEarning} />
             
             
             

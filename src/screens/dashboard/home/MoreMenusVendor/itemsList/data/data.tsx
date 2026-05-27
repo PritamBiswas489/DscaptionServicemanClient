@@ -43,6 +43,11 @@ export const categoriesData: Array<HomeCategoryType> = [
     title: 'newDeveloper.Conversation',
     goToScreen:'StoreChatHistory'
   },
+  { 
+    icon: <ChatIcon height={'36'} width={'36'} />,
+    title: 'newDeveloper.MyEarning',
+    goToScreen:'MyEarning'
+  },
   {
     icon: <SettingIcon height={'36'} width={'36'} />,
     title: 'newDeveloper.moreMenuSettings',
