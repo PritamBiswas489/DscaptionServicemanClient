@@ -48,7 +48,7 @@ export default function MyEarning() {
         currentOffset,
       );
 
-      console.log('response', response?.data);
+      // console.log('response', response?.data);
 
       if (response?.data) {
         const data = response.data;
@@ -88,6 +88,7 @@ export default function MyEarning() {
   };
 
   const openDetails = (item: any) => {
+    console.log('Selected Item', item);
     setSelectedItem(item);
     setModalVisible(true);
   };
@@ -440,6 +441,7 @@ const styles = StyleSheet.create({
   rowValue: {
     fontSize: 15,
     fontWeight: '600',
+    color: '#777',
   },
 
   divider: {
@@ -451,6 +453,7 @@ const styles = StyleSheet.create({
   totalText: {
     fontSize: 17,
     fontWeight: '700',
+    color: '#777',
   },
 
   closeBtn: {
