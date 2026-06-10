@@ -92,11 +92,11 @@ const Login = ({ route }: any) => {
     if (isDeliveryManLogin) {
       // setForm({ ...form, ['phone']: 'fashion1@gmail.com', ['password']: '@Dorkar1234' });
     //  setForm({ ...form, ['phone']: 'foodstore1@gmail.com', ['password']: '@Dorkar1234' });
-     setForm({ ...form, ['phone']: '8111111111', ['password']: '@Dboy1234' });
+    //  setForm({ ...form, ['phone']: '8111111111', ['password']: '@Dboy1234' });
     //  setForm({ ...form, ['phone']: 'Munmun2020@gmail.com', ['password']: '@Kolkata1234' });
       // setForm({ ...form, ['phone']: 'medicine1@gmail.com', ['password']: '@Dorkar1234' });
     } else {
-      setForm({ ...form, ['phone']: '9830990065', ['password']: 'Pritam123' });
+      // setForm({ ...form, ['phone']: '9830990065', ['password']: 'Pritam123' });
     }
   }, [isDeliveryManLogin])
 

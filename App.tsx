@@ -258,33 +258,76 @@ const App: React.FC = () => {
       );
     }; 
 
-    const startLocationTracking = async () => {
+    // const startLocationTracking = async () => {
      
   
-      const id = Geolocation.watchPosition(
-        (position: GeolocationResponse) => {
-          console.log(`============${JSON.stringify({position})} =================`)
-          setLocation(position);
+    //   const id = Geolocation.watchPosition(
+    //     (position: GeolocationResponse) => {
+    //       console.log(`============${JSON.stringify({position})} =================`)
+    //       setLocation(position);
           
-        },
-        (error: GeolocationError) => {
-          console.error('Error:', error.message);
-          setErrorMsg(error.message);
-        },
-        {
-          enableHighAccuracy: true,   // Use GPS for more accurate results
-          distanceFilter: 3000,         // Minimum distance in meters to trigger updates
-          interval: 5000,             // Android: Update every 5 seconds
-          fastestInterval: 2000,      // Android: Fastest updates every 2 seconds
-          timeout: 10000,             // Max time to wait for a location
-          maximumAge: 1000,           // Cache duration for locations
-          useSignificantChanges: false // iOS: Set to true for low power mode
-        }
-      );
+    //     },
+    //     (error: GeolocationError) => {
+    //       console.error('Error:', error.message);
+    //       setErrorMsg(error.message);
+    //     },
+    //     {
+    //       enableHighAccuracy: true,   // Use GPS for more accurate results
+    //       distanceFilter: 3000,         // Minimum distance in meters to trigger updates
+    //       interval: 5000,             // Android: Update every 5 seconds
+    //       fastestInterval: 2000,      // Android: Fastest updates every 2 seconds
+    //       timeout: 10000,             // Max time to wait for a location
+    //       maximumAge: 1000,           // Cache duration for locations
+    //       useSignificantChanges: false // iOS: Set to true for low power mode
+    //     }
+    //   );
   
-      setWatchId(id);
-    };
+    //   setWatchId(id);
+    // };
+    const startLocationTracking = async () => {
+  console.log('START LOCATION TRACKING');
 
+  const id = Geolocation.watchPosition(
+    (position: GeolocationResponse) => {
+      console.log(
+        'LOCATION SUCCESS',
+        position.coords.latitude,
+        position.coords.longitude,
+        'speed:',
+        position.coords.speed,
+      );
+
+//       console.log(
+//   'SATELLITES:',
+//   position?.extras?.satellites,
+//   'SPEED:',
+//   position?.coords?.speed,
+// );
+
+      setLocation(position);
+    },
+    (error: GeolocationError) => {
+      console.log('LOCATION ERROR', error);
+      console.log('Code:', error.code);
+      console.log('Message:', error.message);
+
+      setErrorMsg(error.message);
+    },
+    {
+      enableHighAccuracy: true,
+      distanceFilter: 1,
+      interval: 5000,
+      fastestInterval: 2000,
+      timeout: 10000,
+      maximumAge: 1000,
+      useSignificantChanges: false,
+    }
+  );
+
+  console.log('WATCH ID:', id);
+
+  setWatchId(id);
+};
     const stopLocationTracking = () => {
       if (watchId !== null) {
         Geolocation.clearWatch(watchId);

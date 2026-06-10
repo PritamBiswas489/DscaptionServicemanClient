@@ -31,6 +31,8 @@ export function ServiceMenDashBoard() {
 
    const {topCard} = useSelector((state: RootState)=>state.serviceManHomeData)
 
+  //  console.log("topCard", topCard);
+
   const dashBoardData: Array<dashBoardType> = [
     {
       icon: <Services />,
